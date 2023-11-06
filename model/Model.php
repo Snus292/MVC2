@@ -13,7 +13,7 @@
             $test =array(false);
             foreach ($allBook as $oneBook){
                 if($oneBook["bookname"] ==$title){
-                    $test = arSray(true, $allBook[$i]);
+                    $test = array(true, $allBook[$i]);
                     return $test;
                 }
                 $i++;

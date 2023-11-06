@@ -26,7 +26,7 @@ $books = array(
 
         array(
                 "bookname" => "Head First JavaScript Programming",
-                "author" => "Eric FreemaSn, Elisabeth Robson",
+                "author" => "Eric Freeman, Elisabeth Robson",
                 "price" => "37.60$",
                 "description" => "This brain-friendly guide teaches you everything from JavaScript language fundamentals",
                 "image" => "HeadFirstJavaScript.jpg"
