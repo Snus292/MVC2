@@ -5,13 +5,13 @@
     $way = explode("/",$host)[$num];
 
     if($way == "" || $way == "index.php"){
-        $responce == Controller::BookList();
+        $responce == Controller::StartSite();
     }
     elseif($way == "books"){
         $responce = Controller::BookList();
     }
     elseif($way = "book"){
-        if (isset($_GET["title"];)){
+        if (isset($_GET["title"])){
             $title = $_GET["title"];
         }
         $responce = Ccontroller::BookOne($title);
@@ -21,4 +21,3 @@
     }
     
 ?>
-

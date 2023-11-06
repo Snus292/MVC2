@@ -5,7 +5,7 @@ class Controller{
 
     public function StartSite(){
         include "view/main.php";
-    }
+    }S
 
     public function BookList(){
         $bookList = Model::getBookList();
