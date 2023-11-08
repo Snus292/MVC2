@@ -14,7 +14,7 @@
         if (isset($_GET["title"])){
             $title = $_GET["title"];
         }
-        $responce = Ccontroller::BookOne($title);
+        $responce = Controller::BookOne($title);
     }
     else{
         $responce = Controller::error404();
