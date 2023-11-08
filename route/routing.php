@@ -5,19 +5,17 @@
     $way = explode("/",$host)[$num];
 
     if($way == "" || $way == "index.php"){
-        $responce == Controller::StartSite();
+        $response == Controller::StartSite();
     }
     elseif($way == "books"){
-        $responce = Controller::BookList();
+        $response = Controller::BookList();
     }
     elseif($way = "book"){
         if (isset($_GET["title"])){
             $title = $_GET["title"];
         }
-        $responce = Controller::BookOne($title);
+        $response = Controller::BookOne($title);
     }
     else{
-        $responce = Controller::error404();
+        $response = Controller::error404();
     }
-    
-?>

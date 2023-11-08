@@ -11,7 +11,7 @@ class Controller
 
     public function BookList()
     {
-        $bookList = Model::getBookList();
+        $booksList = Model::getBookList();
         include "view/bookList.php";
     }
 
