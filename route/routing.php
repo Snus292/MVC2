@@ -5,7 +5,7 @@
     $way = explode("/",$host)[$num];
 
     if($way == "" || $way == "index.php"){
-        $response == Controller::StartSite();
+        $response = Controller::StartSite();
     }
     elseif($way == "books"){
         $response = Controller::BookList();
