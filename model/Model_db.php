@@ -1,35 +1,43 @@
 <?php
-require_once("config/db_config.php");
 
+class Model_db
+{
+    private $db;
 
-class Model_db {
-    private $db; //храниться объект соединения с базой данных
-
-    public function __construct($db) { //конструктор класса, который принимает 
-        $this->db = $db;               // и сохраняет $db в приватном свойстве
-        
+    public function __construct(mysqli $db)
+    {
+        $this->db = $db;
     }
 
-    // извлекает данные и возвращает их в виде массива
-    public function GetData() {
-        $arrayResult = array();
-
-        $query = "SELECT * FROM books"; 
-        // запрос к БД с $db
+    public function getBookList()
+    {
+        $query = "SELECT * FROM books";
         $result = $this->db->query($query);
 
-        if ($result->num_rows > 0) {  //извлекаются данные и сохраняются в массив
-            while ($row = $result->fetch_assoc()) { //ассоциативный массив- однa запись из базы данных
-                $arrayResult[] = array(             //, где ключи соответствуют полям в таблице
-                    "TITLE" => $row["TITLE"],
-                    "DATE" => $row["DATE"],
-                    "AUTHOR" => $row["AUTHOR"],
-                    "IMAGE" => $row["IMAGE"],
-                    "TEXT" => $row["TEXT"]
-                );
-            }
+        if (!$result) {
+            die("Ошибка запроса: " . $this->db->error);
         }
-        
-        return $arrayResult;
+
+        $books = [];
+        while ($row = $result->fetch_assoc()) {
+            $books[] = $row;
+        }
+        return $books;
+    }
+
+    public function getBook($title)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM books WHERE bookname = ?");
+        $stmt->bind_param("s", $title);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $book = $result->fetch_assoc();
+            return [true, $book];
+        } else {
+            return [false];
+        }
     }
 }
+

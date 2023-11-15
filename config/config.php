@@ -1,9 +1,9 @@
 <?php
 
 $dbHost = "localhost";
-$dbUser = "phpmvc2"; 
-$dbPassword = "phpmvc2"; 
-$dbName = "phpmvc2"; 
+$dbUser = "phpmvc2";
+$dbPassword = "phpmvc2";
+$dbName = "phpmvc2";
 
 // соединение с DB
 $db = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
