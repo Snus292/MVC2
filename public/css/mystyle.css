@@ -34,7 +34,9 @@
      color: #4e4e4e;
  }
 
- article p {}
+ article p {
+    
+ }
 
  ul {
      list-style: none;
